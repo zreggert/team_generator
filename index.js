@@ -1,6 +1,8 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const Manager = require('./lib/manager')
+const Manager = require('./lib/manager');
+const Engineer = require('./lib/engineer');
+const Intern = require('./lib/intern');
 
 const team = [];
 
@@ -50,6 +52,29 @@ const getEngineerInfo = [
     },
 ]
 
+const getInternInfo = [
+    {
+        type: 'input',
+        message: "What is the intern's name?",
+        name: 'name'
+    },
+    {
+        type: 'input',
+        message: "What is the intern's ID number?",
+        name: 'id'
+    },
+    {
+        type: 'input',
+        message: "What is the intern's email?",
+        name: 'email'
+    },
+    {
+        type: "input",
+        message: "What is the intern's school?",
+        name: 'school',
+    },
+]
+
 const getEmployeeType = [
     {
         type: 'list',
@@ -76,11 +101,24 @@ const initTeam = () => {
 const addEmployees = () => {
     inquirer.prompt(getEmployeeType)
     .then((data) => {
-        if (data.role = 'Engineer') {
+        if (data.role === 'Engineer') {
             inquirer.prompt(getEngineerInfo)
             .then((data => {
                 console.log(data);
+                let engineer = new Engineer(data.name, data.id, data.email, data.github)
+                team.push(engineer);
+                addEmployees();
             }))
+        } else if (data.role === 'Intern') {
+            inquirer.prompt(getInternInfo)
+            .then((data => {
+                console.log(data);
+                let intern = new Intern(data.name, data.id, data.email, data.school)
+                team.push(intern);
+                addEmployees();
+            }))
+        } else {
+            console.log(team);
         }
     })
 }
