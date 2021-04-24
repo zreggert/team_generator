@@ -1,61 +1,90 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-// const Manager = require('./lib/manager')
-// const getManagerInfo = require('./lib/manager')
+const Manager = require('./lib/manager')
 
-const getEmployeeInfo = [
+const team = [];
+
+const getManagerInfo = [
     {
         type: 'input',
-        message: 'What is their name?',
+        message: 'Who is the team manager?',
         name: 'name'
     },
     {
         type: 'input',
-        message: 'What is their ID number?',
+        message: "What is the manager's ID number?",
         name: 'id'
     },
     {
         type: 'input',
-        message: 'What is their email?',
+        message: "What is the manager's email?",
         name: 'email'
     },
     {
-        type: 'list',
-        message: 'What is their role?',
-        name: 'role',
-        choices: [
-            'Manager',
-            'Engineer',
-            'Intern'
-        ]
+        type: "input",
+        message: "What is the manager's office number?",
+        name: 'officeNumber',
     },
 ]
 
-const initEmployee = () => {
-    inquirer.prompt(getEmployeeInfo)
+const getEngineerInfo = [
+    {
+        type: 'input',
+        message: "What is the engineer's name?",
+        name: 'name'
+    },
+    {
+        type: 'input',
+        message: "What is the engineer's ID number?",
+        name: 'id'
+    },
+    {
+        type: 'input',
+        message: "What is the engineer's email?",
+        name: 'email'
+    },
+    {
+        type: "input",
+        message: "What is the engineer's GitHub?",
+        name: 'github',
+    },
+]
+
+const getEmployeeType = [
+    {
+        type: 'list',
+        message: "Are there any other members of this team?",
+        name: 'role',
+        choices: [
+            'Engineer',
+            'Intern',
+            'There are no more members to add.'
+        ]
+    }
+]
+
+const initTeam = () => {
+    inquirer.prompt(getManagerInfo)
     .then((data) => {
-       const employee = new Employee(data.name, data.id, data.email);
-       const employeeType = `${data.role}`;
-
-       console.log(employee);
-       console.log(employeeType);
-
-    //    getEmployeeType(employeeType);
-        getManagerInfo();
+        let manager = new Manager(data.name, data.id, data.email, data.officeNumber)
+        console.log(manager)
+        team.push(manager);
+        addEmployees(); 
     })
 }
 
-// function getEmployeeType(employeeType) {
-//     if (employeeType === 'Manager') {
-//         inquirer.prompt(getManagerInfo)
-//         .then((data) => {
-//             const manager = new Manager(data.officeNumber);
-//             console.log(manager);
-//         })
-//         console.log(employeeType)
-//     }
-        
-// }
+const addEmployees = () => {
+    inquirer.prompt(getEmployeeType)
+    .then((data) => {
+        if (data.role = 'Engineer') {
+            inquirer.prompt(getEngineerInfo)
+            .then((data => {
+                console.log(data);
+            }))
+        }
+    })
+}
 
-initEmployee();
+
+initTeam();
 
