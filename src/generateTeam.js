@@ -1,15 +1,12 @@
-// const Manager = require('../lib/manager');
-// const Engineer = require('../lib/engineer');
-// const Intern = require('../lib/intern');
-
+//determines which role the employee is to determine which class function needs to be envoked
 function getRoleSpecificInfo(member) {
     // console.log(member);
     if (member.getRole() === 'Manager') {
-        return `${member.getOfficeNumber()}`;
+        return `Office Number: ${member.getOfficeNumber()}`;
     } else if (member.getRole()=== 'Engineer') {
-        return `${member.getGithub()}`;
+        return `GitHub: ${member.getGithub()}`;
     } else if (member.getRole() === 'Intern') {
-        return `${member.getSchool()}`;
+        return `School: ${member.getSchool()}`;
     }
 }
 
@@ -30,8 +27,8 @@ function generateHtml(team) {
         </header>
         <main>
             <section>
-                <div class="team-container">
-                    <p>${memberProfiles(team)}</p>
+                <div class="team-container"> 
+                    ${memberProfiles(team)}
                 </div>
             </section>
         </main>
@@ -49,8 +46,8 @@ function memberProfiles(team) {
         profilesArr.push(`
         <div class="member-container">
             <div class="name-role">
-                <h4 class="member-name">${member.getName()}</h4>
-                <h4 class="member-role">${member.getRole()}</h4>
+                <h2 class="member-name">${member.getName()}</h2>
+                <h2 class="member-role">${member.getRole()}</h2>
             </div>
             <div class="member-info">
                 <ul class="info-list">
