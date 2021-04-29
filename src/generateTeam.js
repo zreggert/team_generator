@@ -4,7 +4,7 @@ function getRoleSpecificInfo(member) {
     if (member.getRole() === 'Manager') {
         return `Office Number: ${member.getOfficeNumber()}`;
     } else if (member.getRole()=== 'Engineer') {
-        return `GitHub: ${member.getGithub()}`;
+        return `GitHub: <a href="${member.getGithub()}">${member.getGithub()}</a>`;
     } else if (member.getRole() === 'Intern') {
         return `School: ${member.getSchool()}`;
     }
@@ -52,7 +52,7 @@ function memberProfiles(team) {
             <div class="member-info">
                 <ul class="info-list">
                     <li class="employee-id">ID:${member.getId()}</li>
-                    <li class="employee-email"><a href="${member.getEmail()}">Email:${member.getEmail()}</a></li>
+                    <li class="employee-email">Email: <a href="mailto:${member.getEmail()}">${member.getEmail()}</a></li>
                     <li class="role-info">${getRoleSpecificInfo(member)}</li>
                 </ul>
             </div>
