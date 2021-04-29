@@ -20,6 +20,13 @@
                         <h4 class="member-name">${member.getName()}</h4>
                         <h4 class="member-role">${member.getRole()}</h4>
                     </div>
+                    <div class="member-info">
+                        <ul class="info-list">
+                            <li class="employee-id">ID:${member.getId()}</li>
+                            <li class="employee-email">Email:${member.getEmail()}</li>
+                            <li class="role-info">${getRoleSpecificInfo(member.role)}</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
