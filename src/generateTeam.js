@@ -52,7 +52,7 @@ function memberProfiles(team) {
             <div class="member-info">
                 <ul class="info-list">
                     <li class="employee-id">ID:${member.getId()}</li>
-                    <li class="employee-email">Email:${member.getEmail()}</li>
+                    <li class="employee-email"><a href="${member.getEmail()}">Email:${member.getEmail()}</a></li>
                     <li class="role-info">${getRoleSpecificInfo(member)}</li>
                 </ul>
             </div>
