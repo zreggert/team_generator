@@ -119,12 +119,18 @@ const addEmployees = () => {
                 addEmployees();
             }))
         } else {
-            // console.log(team);
-            generateHtml(team);
+            //console.log(team);
+            generateTeamFile(team);
         }
     })
 }
 
+function generateTeamFile(team) {
+    console.log(team)
+    fs.writeFile("./dist/index.html", generateHtml(team), (err) =>
+      err ? console.log(err) : console.log("Good to go!")
+    )
+}
 
 
 
