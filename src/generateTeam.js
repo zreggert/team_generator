@@ -1,7 +1,8 @@
 function generateHtml(team) {
     // console.log(team);
     team.forEach((member) => {
-        console.log(`${member.name}`)
+        console.log(`${member.getName()}`);
+        console.log(member.getRole())
     });
 }
 

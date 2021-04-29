@@ -1,0 +1,11 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    text-align: center;
+    color:white;
+    background-color: salmon;
+    padding: 30px;
+}
