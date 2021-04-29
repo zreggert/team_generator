@@ -3,6 +3,7 @@ const fs = require('fs');
 const Manager = require('./lib/manager');
 const Engineer = require('./lib/engineer');
 const Intern = require('./lib/intern');
+const generateHtml = require('./src/generateTeam')
 
 const team = [];
 
@@ -118,10 +119,14 @@ const addEmployees = () => {
                 addEmployees();
             }))
         } else {
-            console.log(team);
+            // console.log(team);
+            generateHtml(team);
         }
     })
 }
+
+
+
 
 
 initTeam();
