@@ -47,3 +47,18 @@
   Also please check out this application's repo and my other work at:
   https://github.com/zreggert
   
+## Links
+
+Video Walkthrough: https://zreggert.github.io/team_generator/
+
+## Snapshots
+
+Prompted Questions:
+![snapshot of the prompted questions](./assets/team_gen_prompts.png)
+
+Generated instances:
+![snapshot of instances](./assets/team_gen_created.png)
+
+HTML Generated from results:
+![snapshot of the markdown](./assets/team_gen_markdown_generated.png)
+
