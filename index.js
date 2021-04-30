@@ -127,7 +127,7 @@ const addEmployees = () => {
 
 function generateTeamFile(team) {
     console.log(team)
-    fs.writeFile("./dist/index.html", generateHtml(team), (err) =>
+    fs.writeFile("./dist/roster.html", generateHtml(team), (err) =>
       err ? console.log(err) : console.log("Good to go!")
     )
 }
